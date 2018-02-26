@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap Links-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/328/dating2018/styles/styles.css">
+    <title>Personal Information</title>
+</head>
+<body>
+
+<!-- Navigation Bar/Header in the upper left corner -->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <ul class="nav navbar-brand">
+            <li>DateMe.EXE - A Dating Site for AI</li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row panel panel-default">
+        <div class="col-md-12">
+            <h1>Personal Information</h1>
+            <hr>
+        </div>
+        <div class="panel-body">
+            <!-- Form fields aligned to the left -->
+            <form action="./form1" method="POST">
+                <div class="col-md-8">
+                    <div class="form-group has-feedback">
+                        <!-- First Name -->
+                        <label for="fName" class="control-label">First Name</label>
+                        <input id="fName" name="fName" type="text" class="form-control">
+                        <span class="glyphicon glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group">
+                        <label for="lName" class="control-label">Last Name</label>
+                        <input id="lName" name="lName" type="text" class="form-control">
+                    </div>
+
+                    <!-- Age -->
+                    <div class="form-group">
+                        <label for="age" class="control-label">Age</label>
+                        <input id="age" name="age" type="text" class="form-control">
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="form-group">
+                        <label>Gender</label><br>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" value="M"> Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" value="F"> Female
+                        </label>
+                    </div>
+
+                    <!-- Phone Number-->
+                    <div class="form-group">
+                        <label for="phone" class="control-label">Phone Number</label>
+                        <input id="phone" name="phone" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Privacy Policy/Disclaimer aligned to the right -->
+                <div class="col-md-4">
+                    <div class="well text-center" id="privacyPol">
+                        <b>Note:</b> All information entered is protected by our <a href="#">privacy policy.</a>
+                        Profile information can only be viewed by others with your permission.
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-primary pull-right" value="Next >">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

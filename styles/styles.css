@@ -1,0 +1,17 @@
+/*
+ * Name: Raine Padilla
+ * Date: 01/23/2018
+ * Customized styles for the site.
+ */
+
+/* Overriding the blockquote styles to remove the gray bar and italicize the text*/
+.custom-quote {
+    border-left: none;
+    font-style: italic;
+}
+
+/* Custom margin to fix margin styles on Member Profile */
+.custom-margin
+{
+    margin: 5px;
+}
