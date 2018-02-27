@@ -19,8 +19,21 @@ $f3->route('GET /', function(){
 });
 
 // Form 1 route - able to get, post to self until form validates
-$f3->route('GET|POST /form1', function(){
+$f3->route('GET|POST /form1', function($f3){
+    if(isset($_POST['submit']))
+    {
+        $fName = $_POST['fName'];
+        $lName = $_POST['lName'];
+        $age = $_POST['age'];
+        $gender = $_POST['gender'];
+        $phone = $_POST['phone'];
 
+        $f3->set('fName', $fName);
+        $f3->set('lName', $lName);
+        $f3->set('age', $age);
+        // Gender not set because it is not sticky
+        $f3->set('phone', $phone);
+    }
     $template = new Template();
     echo $template->render('views/personalinfo.html');
 });

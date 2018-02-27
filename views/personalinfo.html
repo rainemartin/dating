@@ -38,20 +38,23 @@
                     <div class="form-group has-feedback">
                         <!-- First Name -->
                         <label for="fName" class="control-label">First Name</label>
-                        <input id="fName" name="fName" type="text" class="form-control">
+                        <input id="fName" name="fName" type="text"
+                               class="form-control" value="{{ @fName }}">
                         <span class="glyphicon glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
 
                     <!-- Last Name -->
                     <div class="form-group">
                         <label for="lName" class="control-label">Last Name</label>
-                        <input id="lName" name="lName" type="text" class="form-control">
+                        <input id="lName" name="lName" type="text"
+                               class="form-control" value="{{ @lName }}">
                     </div>
 
                     <!-- Age -->
                     <div class="form-group">
                         <label for="age" class="control-label">Age</label>
-                        <input id="age" name="age" type="text" class="form-control">
+                        <input id="age" name="age" type="text"
+                               class="form-control" value="{{ @age }}">
                     </div>
 
                     <!-- Gender -->
@@ -68,7 +71,8 @@
                     <!-- Phone Number-->
                     <div class="form-group">
                         <label for="phone" class="control-label">Phone Number</label>
-                        <input id="phone" name="phone" class="form-control">
+                        <input id="phone" name="phone"
+                               class="form-control" value="{{ @phone }}">
                     </div>
                 </div>
 
@@ -82,7 +86,7 @@
 
                 <!-- Submit Button -->
                 <div class="col-md-12">
-                    <input type="submit" class="btn btn-primary pull-right" value="Next >">
+                    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Next >">
                 </div>
 
             </form>
