@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap Links-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/328/dating2018/styles/styles.css">
+    <title>Profile</title>
+</head>
+<body>
+    <!-- Navigation Bar/Header in the upper left corner -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <ul class="nav navbar-brand">
+                <li>DateMe.EXE - A Dating Site for AI</li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row panel panel-default">
+            <div class="col-md-12">
+                <h1>Profile</h1>
+                <hr>
+            </div>
+
+            <div class="panel-body">
+
+                    <form action="./form2" method="POST">
+                        <!-- Left Fields -->
+                        <div class="col-md-6">
+                            <!-- E-mail -->
+                            <div class="form-group">
+                                <label for="email" class="control-label">Email</label>
+                                <span class="error">{{ @errors['email'] }}</span>
+                                <input id="email" name="email" type="text"
+                                       class="form-control" value="{{ @email }}">
+                            </div>
+
+                            <!-- State select from https://gist.github.com/RichLogan/9903043-->
+                            <div class="form-group">
+                                <label for="state" class="control-label">State</label>
+                                <select class="form-control" id="state" name="state">
+                                    <option value="">Select</option>
+                                    <option value="Alaska">Alaska</option>
+                                    <option value="Alabama">Alabama</option>
+                                    <option value="Arkansas">Arkansas</option>
+                                    <option value="Arizona">Arizona</option>
+                                    <option value="California">California</option>
+                                    <option value="Colorado">Colorado</option>
+                                    <option value="Connecticut">Connecticut</option>
+                                    <option value="District of Columbia">District of Columbia</option>
+                                    <option value="Delaware">Delaware</option>
+                                    <option value="Florida">Florida</option>
+                                    <option value="Georgia">Georgia</option>
+                                    <option value="Hawaii">Hawaii</option>
+                                    <option value="Iowa">Iowa</option>
+                                    <option value="Idaho">Idaho</option>
+                                    <option value="Illinois">Illinois</option>
+                                    <option value="Indiana">Indiana</option>
+                                    <option value="Kansas">Kansas</option>
+                                    <option value="Kentucky">Kentucky</option>
+                                    <option value="Lousiana">Louisiana</option>
+                                    <option value="Massachusetts">Massachusetts</option>
+                                    <option value="Maryland">Maryland</option>
+                                    <option value="Maine">Maine</option>
+                                    <option value="Michigan">Michigan</option>
+                                    <option value="Minnesota">Minnesota</option>
+                                    <option value="Missouri">Missouri</option>
+                                    <option value="Mississippi">Mississippi</option>
+                                    <option value="Montana">Montana</option>
+                                    <option value="North Carolina">North Carolina</option>
+                                    <option value="North Dakota">North Dakota</option>
+                                    <option value="Nebraska">Nebraska</option>
+                                    <option value="New Hamphsire">New Hampshire</option>
+                                    <option value="New Jersey">New Jersey</option>
+                                    <option value="New Mexico">New Mexico</option>
+                                    <option value="Nevada">Nevada</option>
+                                    <option value="New York">New York</option>
+                                    <option value="Ohio">Ohio</option>
+                                    <option value="Oklahoma">Oklahoma</option>
+                                    <option value="Oregon">Oregon</option>
+                                    <option value="Pennsylvania">Pennsylvania</option>
+                                    <option value="Puerto Rico">Puerto Rico</option>
+                                    <option value="Rhode Island">Rhode Island</option>
+                                    <option value="South Carolina">South Carolina</option>
+                                    <option value="South Dakota">South Dakota</option>
+                                    <option value="Tennessee">Tennessee</option>
+                                    <option value="Texas">Texas</option>
+                                    <option value="Utah">Utah</option>
+                                    <option value="Virginia">Virginia</option>
+                                    <option value="Vermont">Vermont</option>
+                                    <option value="Washington">Washington</option>
+                                    <option value="Wisconsin">Wisconsin</option>
+                                    <option value="West Virginia">West Virginia</option>
+                                    <option value="Wyoming">Wyoming</option>
+                                </select>
+                            </div>
+
+                            <!-- Seeking Gender -->
+                            <div class="form-group">
+                                <label>Seeking</label><br>
+                                <label class="radio-inline">
+                                    <input type="radio" name="seeking" value="M"> Male
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="seeking" value="F"> Female
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Right Fields -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="bio" class="control-labl">Biography</label>
+                                <textarea id="bio" name="bio" class="form-control" rows="5">{{ @bio }}</textarea>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="col-md-12">
+                            <input type="submit" name='submit' class="btn btn-primary pull-right" value="Next >">
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
