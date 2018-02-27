@@ -38,6 +38,7 @@
                     <div class="form-group has-feedback">
                         <!-- First Name -->
                         <label for="fName" class="control-label">First Name</label>
+                        <span class="error"> {{ @errors['first'] }}</span>
                         <input id="fName" name="fName" type="text"
                                class="form-control" value="{{ @fName }}">
                         <span class="glyphicon glyphicon glyphicon-user form-control-feedback"></span>
@@ -46,6 +47,7 @@
                     <!-- Last Name -->
                     <div class="form-group">
                         <label for="lName" class="control-label">Last Name</label>
+                        <span class="error"> {{ @errors['last'] }}</span>
                         <input id="lName" name="lName" type="text"
                                class="form-control" value="{{ @lName }}">
                     </div>
@@ -53,6 +55,7 @@
                     <!-- Age -->
                     <div class="form-group">
                         <label for="age" class="control-label">Age</label>
+                        <span class="error"> {{ @errors['age'] }}</span>
                         <input id="age" name="age" type="text"
                                class="form-control" value="{{ @age }}">
                     </div>
@@ -71,6 +74,7 @@
                     <!-- Phone Number-->
                     <div class="form-group">
                         <label for="phone" class="control-label">Phone Number</label>
+                        <span class="error"> {{ @errors['phone'] }}</span>
                         <input id="phone" name="phone"
                                class="form-control" value="{{ @phone }}">
                     </div>

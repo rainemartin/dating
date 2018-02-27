@@ -7,6 +7,7 @@
 error_reporting(E_ALL);
 require_once ('vendor/autoload.php');
 
+
 session_start();
 // Create the fat-free base instance and set debug level for development
 $f3 = Base::instance();
@@ -22,17 +23,23 @@ $f3->route('GET /', function(){
 $f3->route('GET|POST /form1', function($f3){
     if(isset($_POST['submit']))
     {
+        // Include validate file
+        include 'model/validate.php';
+
         $fName = $_POST['fName'];
         $lName = $_POST['lName'];
         $age = $_POST['age'];
         $gender = $_POST['gender'];
         $phone = $_POST['phone'];
 
+       $errorArray = validateFormOne($fName, $lName, $age, $phone, $f3);
+
         $f3->set('fName', $fName);
         $f3->set('lName', $lName);
         $f3->set('age', $age);
         // Gender not set because it is not sticky
         $f3->set('phone', $phone);
+        $f3->set('errors', $errorArray);
     }
     $template = new Template();
     echo $template->render('views/personalinfo.html');
