@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap Links-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/328/dating2018/styles/styles.css">
+    <title>Member Profile</title>
+</head>
+<body>
+    <!-- Navigation Bar/Header in the upper left corner -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <ul class="nav navbar-brand">
+                <li>DateMe.EXE - A Dating Site for AI</li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container panel panel-default">
+        <div class="col-md-6">
+            <!-- Form information -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Name: {{@SESSION.member->getfName() }} {{ @SESSION.member->getlName() }}
+                    </li>
+                    <li class="list-group-item">
+                        Gender: {{ @SESSION.member->getGender() }}
+                    </li>
+                    <li class="list-group-item">
+                        Age: {{ @SESSION.member->getAge() }}
+                    </li>
+                    <li class="list-group-item">
+                        Phone: {{ @SESSION.member->getPhone() }}
+                    </li>
+                    <li class="list-group-item">
+                        Email: {{ @SESSION.member->getEmail() }}
+                    </li>
+                    <li class="list-group-item">
+                        State: {{ @SESSION.member->getState() }}
+                    </li>
+                    <li class="list-group-item">
+                        Seeking: {{ @SESSION.member->getSeeking() }}
+                    </li>
+                    <li class="list-group-item">
+                        Interests:
+                    </li>
+                </ul>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Default Av & Bio -->
+            <img src="./images/default-avatar.png" alt="Avatar"
+                 class="center-block img-rounded img-responsive">
+            <h3>Biography</h3>
+            <p class="text-center">
+                {{ @SESSION.member->getBio() }}
+            </p>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-primary center-block">Contact Me!</button>
+        </div>
+    </div>
+
+
+</body>
+</html>

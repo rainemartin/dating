@@ -31,6 +31,7 @@ $f3->route('GET|POST /form1', function($f3){
         $age = $_POST['age'];
         $gender = $_POST['gender'];
         $phone = $_POST['phone'];
+        $premium = isset($_POST['premium']);
 
        $errorArray = validateFormOne($fName, $lName, $age, $phone, $f3);
 
@@ -47,7 +48,7 @@ $f3->route('GET|POST /form1', function($f3){
         if($success)
         {
             // Create member object
-            if(isset($_POST['premium']))
+            if($premium)
             {
                 $member = new Premium($fName, $lName, $age, $gender, $phone);
             }
@@ -56,7 +57,13 @@ $f3->route('GET|POST /form1', function($f3){
                 $member = new Member($fName, $lName, $age, $gender, $phone);
             }
 
+            // Add member to hive
             $f3->set('SESSION.member', $member);
+
+            // Add premium to hive for later routing
+            $_SESSION['premium'] = $premium;
+
+            // Continue to form2
             $f3->reroute('./form2');
         }
 
@@ -85,10 +92,37 @@ $f3->route('GET|POST /form2', function($f3) {
         // Seeking not sticky
         $f3->set('bio', $bio);
         $f3->set('errors', $errorArray);
+
+        // If the form validates
+        if($success)
+        {
+            // If the member is a premium user
+            if($_SESSION['premium'])
+            {
+                //re-route to interest's page
+                print_r($f3->get('member'));
+                $f3->reroute('/form3');
+            }
+            else
+            {
+                // re-route to results page
+                print_r($f3->get('member'));
+                $f3->reroute('/results');
+            }
+        }
     }
 
     $template = new Template();
     echo $template->render('views/profile.html');
+});
+
+$f3->route('GET|POST /form3', function(){
+    $view = new Template();
+    echo $view->render('views/interests.html');
+});
+
+$f3->route('GET|POST /results', function(){
+   echo "This is the results page";
 });
 
 $f3->run();
