@@ -5,13 +5,18 @@
  * Description: The fat-free "controller" or routing page for the dating website
  */
 error_reporting(E_ALL);
-require_once ('vendor/autoload.php');
+require_once ("vendor/autoload.php");
+require_once("/home/epadilla/config.php");
+
+require("model/db-functions.php");
 
 
-session_start();
 // Create the fat-free base instance and set debug level for development
 $f3 = Base::instance();
+session_start();
 $f3->set('DEBUG', 3);
+
+$dbh = connect();
 
 // Set first route - view home page
 $f3->route('GET /', function(){
@@ -96,17 +101,30 @@ $f3->route('GET|POST /form2', function($f3) {
         // If the form validates
         if($success)
         {
+            // Update the member object
+            $member = $f3->get('SESSION.member');
+            // Update the member object
+            $member->setEmail($email);
+            $member->setState($state);
+            $member->setSeeking($seeking);
+            $member->setBio($bio);
+
+            // update member in the hive
+
+            $f3->set('SESSION.member', $member);
+
+            // Set premium in hive for results page
+            $f3->set('premium', $_SESSION['premium']);
+
             // If the member is a premium user
             if($_SESSION['premium'])
             {
                 //re-route to interest's page
-                print_r($f3->get('member'));
                 $f3->reroute('/form3');
             }
             else
             {
                 // re-route to results page
-                print_r($f3->get('member'));
                 $f3->reroute('/results');
             }
         }
@@ -116,13 +134,45 @@ $f3->route('GET|POST /form2', function($f3) {
     echo $template->render('views/profile.html');
 });
 
-$f3->route('GET|POST /form3', function(){
-    $view = new Template();
-    echo $view->render('views/interests.html');
+$f3->route('GET|POST /form3', function($f3){
+    print_r($_POST);
+
+    if(isset($_POST))
+    {
+        $_SESSION['indoors'] = $_POST['indoors'];
+        $_SESSION['outdoors'] = $_POST['outdoors'];
+
+        $indoor = $_SESSION['indoors'];
+        $outdoor = $_SESSION['outdoors'];
+
+
+        $member = $f3->get('SESSION.member');
+        $member->setIndoorInterests($indoor);
+        $member->setOutdoorInterests($outdoor);
+
+        $f3->set('SESSION.member', $member);
+    }
+    $template = new Template();
+    echo $template->render('views/interests.html');
 });
 
-$f3->route('GET|POST /results', function(){
-   echo "This is the results page";
+$f3->route('GET|POST /results', function($f3){
+    $member = $f3->get('SESSION.member');
+    if($member instanceof Premium)
+        addMember($member->getFName(), $member->getLName(), $member->getAge(), $member->getGender(), $member->getPhone(), $member->getEmail(), $member->getState(),
+            $member->getSeeking(), $member->getBio(), 1, '', $member->getInDoorInterests() . $member->getOutDoorInterests());
+    else
+        addMember($member->getFName(), $member->getLName(), $member->getAge(), $member->getGender(), $member->getPhone(), $member->getEmail(), $member->getState(),
+            $member->getSeeking(), $member->getBio(), 0, '', '');
+    $template = new Template();
+    echo $template->render('views/results.html');
+});
+
+$f3->route('GET|POST /admin', function($f3){
+   $members = getMembers();
+   $f3->set('members', $members);
+   $template = new Template();
+   echo $template->render('views/admin-table.html');
 });
 
 $f3->run();

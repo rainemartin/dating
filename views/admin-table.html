@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/328/dating2018/styles/styles.css">
+    <title>All Members</title>
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>State</th>
+        <th>Gender</th>
+        <th>Seeking</th>
+        <th>Premium</th>
+        <th>Interests</th>
+    </tr>
+    </thead>
+    <tbody>
+    <repeat group="{{ @members }}" value="{{ @member }}">
+        <tr>
+            <td>{{ @member['member_id'] }}</td>
+            <td>{{ @member['fname'] . ' ' . @member['lname'] }}</td>
+            <td>{{ @member['age'] }}</td>
+            <td>{{ @member['phone'] }}</td>
+            <td>{{ @member['email'] }}</td>
+            <td>{{ @member['state'] }}</td>
+            <td>{{ @member['gender'] }}</td>
+            <td>{{ @member['seeking'] }}</td>
+            <check if="{{ @member['premium'] == 1}} ">
+                <true>
+                    <td><input id="checkBox" type="checkbox" checked disabled></td>
+                </true>
+                <false>
+                    <td><input id="checkBox" type="checkbox" disabled></td>
+                </false>
+            </check>
+            <td>{{ @member['interests'] }}</td>
+        </tr>
+    </repeat>
+    </tbody>
+</table>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,4 +1,14 @@
 <?php
+/**
+ * The Member class represents a member for the dating site.
+ *
+ * The Member class represents a normal member. It has nine
+ * values; first name, last name, age, gender, phone number,
+ * email, state, seeking, and bio.
+ *
+ * @author Raine Padilla <epadilla7@mail.greenriver.edu>
+ * @copyright 2018
+ */
 
 class Member
 {
@@ -22,7 +32,9 @@ class Member
     }
 
     /**
-     * @return mixed
+     * Function that retrieves the first name from the object.
+     *
+     * @return  a String fName from form1
      */
     public function getFName()
     {
@@ -30,7 +42,10 @@ class Member
     }
 
     /**
-     * @param mixed $fName
+     * Function that changes the first name from the object.
+     *
+     * @param String $fName represents the first name from form1.
+     * @return void
      */
     public function setFName($fName)
     {
@@ -38,7 +53,9 @@ class Member
     }
 
     /**
-     * @return mixed
+     * Function that retrieves the last name from the object.
+     *
+     * @return  a String lName from form1
      */
     public function getLName()
     {
@@ -46,7 +63,10 @@ class Member
     }
 
     /**
-     * @param mixed $lName
+     * Function that changes the last name value.
+     *
+     * @param String $fName represents the last name from form1
+     * @return void
      */
     public function setLName($lName)
     {
@@ -54,7 +74,9 @@ class Member
     }
 
     /**
-     * @return mixed
+     * Function that retrieves the age value.
+     *
+     * @return  an int representing age from form1
      */
     public function getAge()
     {
@@ -62,7 +84,10 @@ class Member
     }
 
     /**
-     * @param mixed $age
+     * Function that changes the age from the object.
+     *
+     * @param Int $age is an integer above 18.
+     * @return void
      */
     public function setAge($age)
     {
@@ -70,7 +95,9 @@ class Member
     }
 
     /**
-     * @return mixed
+     * Function that retrieves the gender from the object.
+     *
+     * @return  a String gender from form1
      */
     public function getGender()
     {
@@ -78,7 +105,10 @@ class Member
     }
 
     /**
-     * @param mixed $gender
+     * Function that changes the gender value.
+     *
+     * @param String $gender is from form1
+     * @return void
      */
     public function setGender($gender)
     {
@@ -86,7 +116,9 @@ class Member
     }
 
     /**
-     * @return mixed
+     * Function that retrieves the phone number from the object.
+     *
+     * @return  a String phone from form1. Must be formatted 123-456-7890
      */
     public function getPhone()
     {
@@ -94,7 +126,10 @@ class Member
     }
 
     /**
-     * @param mixed $phone
+     * Function that changes the phone number from the object.
+     *
+     * @param String $phone is from form1
+     * @return void
      */
     public function setPhone($phone)
     {
@@ -102,7 +137,9 @@ class Member
     }
 
     /**
-     * @return mixed
+     * Function that retrieves the email address from the object.
+     *
+     * @return  String from form2.
      */
     public function getEmail()
     {
@@ -110,7 +147,10 @@ class Member
     }
 
     /**
-     * @param mixed $email
+     * Function that changes the email-address
+     *
+     * @param String $email is from form2
+     * @return void
      */
     public function setEmail($email)
     {
@@ -118,7 +158,9 @@ class Member
     }
 
     /**
-     * @return mixed
+     * Function that retrieves the State from the object.
+     *
+     * @return  String state from form2
      */
     public function getState()
     {
@@ -126,15 +168,19 @@ class Member
     }
 
     /**
-     * @param mixed $state
+     * Function that changes the State value.
+     *
+     * @param String $state is from form2
+     * @return void
      */
     public function setState($state)
     {
         $this->state = $state;
     }
-
     /**
-     * @return mixed
+     * Function that retrieves the gender this member is seeking.
+     *
+     * @return  a string M/F
      */
     public function getSeeking()
     {
@@ -142,7 +188,10 @@ class Member
     }
 
     /**
-     * @param mixed $seeking
+     * Function that changes the gender seeking.
+     *
+     * @param String $seeking is from form2
+     * @return void
      */
     public function setSeeking($seeking)
     {
@@ -150,7 +199,9 @@ class Member
     }
 
     /**
-     * @return mixed
+     * Function that retrieves a biography paragraph from the object.
+     *
+     * @return  a large string. Will cut off at 600 characters.
      */
     public function getBio()
     {
@@ -158,7 +209,10 @@ class Member
     }
 
     /**
-     * @param mixed $bio
+     * Function that changes the biography string.
+     *
+     * @param String $bio is from form2
+     * @return void
      */
     public function setBio($bio)
     {

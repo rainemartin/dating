@@ -1,4 +1,14 @@
 <?php
+/**
+ * The Premium class represents a Premium member for the dating site.
+ *
+ * The Premium class represents a Premium member. In addition to the
+ * member fields, the Premium member adds two arrays for Indoor and
+ * Outdoor interests.
+ *
+ * @author Raine Padilla <epadilla7@mail.greenriver.edu>
+ * @copyright 2018
+ */
 
 class Premium extends Member
 {
@@ -10,8 +20,11 @@ class Premium extends Member
         Parent::__construct($fName, $lName, $age, $gender, $phone);
     }
 
+
     /**
-     * @return mixed
+     * Function that retrieves the indoorInterests from the object.
+     *
+     * @return  an array of strings
      */
     public function getIndoorInterests()
     {
@@ -19,7 +32,10 @@ class Premium extends Member
     }
 
     /**
-     * @param mixed $indoorInterests
+     * Function that changes the indoorInterests array.
+     *
+     * @param Array $indoorInterests is an array of values from form3
+     * @return Array
      */
     public function setIndoorInterests($indoorInterests)
     {
@@ -27,7 +43,9 @@ class Premium extends Member
     }
 
     /**
-     * @return mixed
+     * Function that retrieves the outdoorInterests from the object.
+     *
+     * @return  an array of strings
      */
     public function getOutdoorInterests()
     {
@@ -35,7 +53,10 @@ class Premium extends Member
     }
 
     /**
-     * @param mixed $outdoorInterests
+     * Function that changes the outdoorInterests array.
+     *
+     * @param Array $outdoorInterests is an array of values from form3
+     * @return Array
      */
     public function setOutdoorInterests($outdoorInterests)
     {

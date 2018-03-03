@@ -50,6 +50,14 @@
                     </li>
                     <li class="list-group-item">
                         Interests:
+                        <!--<check if="{{ @premium == true }}"> -->
+                                <repeat group="{{ @SESSION.member->getIndoorInterests() }}" value="{{ @value }}">
+                                    {{ @value }}
+                                </repeat>
+                                <repeat group="{{ @SESSION.member->getOutdoorInterests() }}" value="{{ @value }}">
+                                    {{ @value }}
+                                </repeat>
+                        <!--</check>-->
                     </li>
                 </ul>
         </div>
